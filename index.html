@@ -3,20 +3,71 @@
 <head>
     <title>My Stream</title>
     <style>
-        body { background: #111; color: white; text-align: center; font-family: sans-serif; margin: 0; padding: 0; }
-        .container { margin-top: 50px; }
-        iframe { 
-            width: 800px; 
-            height: 450px; 
-            border: none; 
-            display: block;    /* Makes it a block element */
-            margin: 0 auto;    /* Centers it horizontally since text-align won't work anymore */
+        body {
+            background: #111;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            position: relative;
+            width: 90%; /* Flexible width */
+            max-width: 1280px; /* Wider container */
+            margin: 50px auto; /* Center the container */
+            height: 500px; /* Fixed height */
+        }
+    
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 6%; /* Center the iframe horizontally */
+            width: 88%; /* Adjusted width for better appearance */
+            height: 100%; /* Full height */
+            border: none;
+        }
+    
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%; /* Slightly wider for smaller screens */
+                margin: 30px auto; /* Reduce top/bottom margin */
+                height: 400px; /* Adjust height for smaller screens */
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .container {
+                width: 100%; /* Full width for very small screens */
+                margin: 20px auto; /* Further reduce top/bottom margin */
+            }
+        }
+    
+        /* Styles for landscape orientation */
+        @media (orientation: landscape) {
+            .container {
+                width: 70%; /* Narrower width for landscape */
+                margin: 40px auto; /* Adjust margins */
+            }
+        }
+    
+        /* Styles for portrait orientation */
+        @media (orientation: portrait) {
+            .container {
+                width: 90%; /* Wider width for portrait */
+                margin: 30px auto; /* Adjust margins */
+            }
+            iframe {
+                width: 90%; /* Adjust iframe width for smaller screens */
+                left: 5%; /* Center iframe */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <iframe width="800" height="450" src="https://www.youtube.com/embed/njfB_B4cOPU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="dynamicIframe" src="https://www.youtube.com/embed/njfB_B4cOPU" title="YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </body>
 </html>
